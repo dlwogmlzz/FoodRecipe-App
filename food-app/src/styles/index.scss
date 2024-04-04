@@ -1,0 +1,56 @@
+// :root는 최상위 요소에 변수를 선언하면 모든 요소에서 이 변수를 사용할 수 있다.
+// --(하이픈 2개) 다음 속성 이름을 정해주고 :(콜론)뒤에 속성 값을 적어준다.
+// 사용할때는 var로 변수를 선언하고, 소괄호 안에 속성 값을 입력
+
+:root {
+	--background-color: #fff;
+	--background-light: #fff;
+	--shadow-color: rgba(0,0,0,0.2);
+	--primary-color: rgb(255, 0, 86);
+	--text-color: #0A0A0A;
+	--text-light: #575757;
+	--font-size: 16px;
+	--animation-speed: 1;
+}
+
+@function getAnimationDuration($duration: number) {
+	@return calc($duration * var(--animation-speed));
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: var(--font-size); // :root에 설정한 16px
+	// 추가한 rotobo 폰트 지정
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+@import "partials/navbar.scss";
+
+.main {
+	padding-block: 3vw;
+}
+
+.container {
+	padding-inline: 15vw;
+}
+@import "partials/animations.scss";
+@media screen and (max-width: 768px) {
+	.navbar {
+		.nav-links {
+			display: none;
+		}
+		.sidebar-btn {
+			display: block;
+		}
+	}
+}
+

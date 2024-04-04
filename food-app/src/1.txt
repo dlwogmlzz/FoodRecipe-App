@@ -1,0 +1,36 @@
+## React Recipe App
+⬛️1. React 프로젝트 추가
+⬛️2. sass 추가
+⬛️3. fontawesome(아이콘, 폰트) 터미널 실행
+  ► package.json에 dependencies에 추가확인!
+⬛️4. sass에 :root 가상 클래스 추가확인(html보다 스타일 적용 우선순위가 높다.)	
+⬛️5. fontawesome 폰트 index.html에 추가(link)
+
+```
+1. npx create-react-app appname
+2. npm i sass
+
+3. 
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/free-brands-svg-icons
+npm install --save @fortawesome/react-fontawesome
+
+4.
+:root {
+	--background-color: #fff;
+	--background-light: #fff;
+	--shadow-color: rgba(0,0,0,0.2);
+	--primary-color: rgb(255, 0, 86);
+	--text-color: #0A0A0A;
+	--text-light: #575757;
+	--font-size: 16px;
+	--animation-speed: 1;
+
+5.
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+```
+

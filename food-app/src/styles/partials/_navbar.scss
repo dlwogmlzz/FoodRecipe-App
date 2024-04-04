@@ -1,0 +1,144 @@
+.navbar {
+	height: 55px;
+	box-shadow: 0 3px 6px var(--shadow-color);
+	background-color: var(--background-color);
+	color: var(--text-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	// div태그의 navbar 안에 logo클래스
+	.logo {
+		font-size: 1.5em;
+		font-weight: bolder;
+		color: var(--primary-color);
+		text-shadow: 0 1px 3px var(--shadow-color);
+		// a태그의 logo 클래스 안에 있는 span태그
+		span {
+			color: var(--text-color);
+		}
+	}
+
+	// nav-links 클래스안의 a태그
+	.nav-links {
+		a {
+			margin-left: 1em;
+			color: var(--text-light);
+			// 문자 간의 공백추가
+			letter-spacing: 2px;
+			// 텍스트 대문자 변환
+			text-transform: uppercase;
+			position: relative;
+			font-size: .9em;
+			// 요소 내용 앞쪽에 새 컨텐츠 추가
+			&::before {
+				content: '';
+				display: inline-block;
+				height: 3px;
+				width: 100%;
+				background-color: var(--primary-color);
+				position: absolute;
+				bottom: -5px;
+				left: 0;
+				// 1. 일단 가림
+				transform: scaleX(0);
+				// 애니메이션 속도 0.5초로 감축
+				transition: transform getAnimationDuration(.2s) ease-in-out;
+			}
+			&:hover {
+				&::before {
+					// 2. 마우스를 올리면 나옴
+					transform: scaleX(1);
+				}
+			}
+			&.active {
+				color: var(--primary-color);
+				font-weight: bold;
+			}
+		}
+	}
+	.sidebar-btn {
+		height: 28px;
+		width: 30px;
+		// background-color: red;
+		position: relative;
+		// 화면이 작아질때만 표시함
+		display: none;
+
+		.bar {
+			border-radius: 5px;
+			height: 6px;
+			width: 100%;
+			background-color: var(--text-color);
+			position: absolute;
+			transition: transform getAnimationDuration(.5s) ease-in-out;
+			&:nth-child(1) {
+				top: 0;
+			}
+			&:nth-child(2) {				
+				top: 50%;
+				transform-origin: right;
+				transform: scaleX(.8) translateY(-50%);
+			}
+			&:nth-child(3) {
+				top: 100%;
+				transform-origin: right;
+				transform: scaleX(1.1) translateY(-100%);
+			}
+		}
+		&.active {
+				.bar {
+				transform-origin: center;
+				top: 50%;
+				&:nth-child(1) {
+					transform: translate(0, -50%) scale(1) rotate(45deg);
+				}
+				&:nth-child(2) {
+					transform: scaleX(0) translateY(-50%);
+				}
+				&:nth-child(3) {
+					transform: translate(0, -50%) scale(1) rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 260px;
+	background-color: var(--background-color);
+	box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
+							3px 0 5px var(--shadow-color);
+	animation: getAnimationDuration(.3s) slideInLeft;
+	.sidebar-link {
+		display: block;
+		padding: .5em 1em;
+		border-left: .4em solid transparent;
+		margin-bottom: 1em;
+		color: var(--text-color);
+		font-size: 1.1em;
+		transform: translateX(-100%);
+		// ????????????
+		animation: getAnimationDuration(.3s) slideInLeft forwards;
+		@for $i from 1 through 3 {
+			// ?????????????
+			&:nth-child(#{$i}) {
+				animation-delay: #{$i * .1}s;
+			}
+		}
+		&.active {
+			border-left-color: var(--primary-color);
+		}
+		&:hover {
+			border-left-color: var(--primary-color);
+			background-color: rgba(0,0,0,0.05);
+		}
+		svg {
+			width: 1.2em;
+			margin-right: .5em;
+		}
+	}
+}
