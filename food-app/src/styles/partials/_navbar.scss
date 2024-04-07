@@ -6,6 +6,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	// navbar 고정 시키고, 넓이 조절
+	position: fixed;
+	width: 100%;
+	// 2. navbar가 컨텐츠 타이틀을 가리기 때문에 조절
+	top: 0;
+	z-index: 998;
 	// div태그의 navbar 안에 logo클래스
 	.logo {
 		font-size: 1.5em;
@@ -109,6 +115,8 @@
 	left: 0;
 	height: 100vh;
 	width: 260px;
+	// 사이드바를 위로
+	z-index: 999;
 	background-color: var(--background-color);
 	box-shadow: 0 0 0 1000px rgba(0,0,0,0.2),
 							3px 0 5px var(--shadow-color);

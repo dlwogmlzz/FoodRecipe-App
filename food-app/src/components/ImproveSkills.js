@@ -10,7 +10,7 @@ export default function ImproveSkills() {
 	];
 
 	return (
-		<div className="section improve-skills"> 
+		<div className="section restaurant-info"> 
 			<div className="col img">
 				<img src="/img/gallery/img-18.jpg" alt="" />
 			</div>

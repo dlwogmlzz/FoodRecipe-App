@@ -27,6 +27,8 @@ body {
 	font-size: var(--font-size); // :root에 설정한 16px
 	// 추가한 rotobo 폰트 지정
 	font-family: 'Roboto', sans-serif;
+	// navbar가 컨텐츠 타이틀을 가리기 때문에 조절
+	padding-top: 55px;
 }
 
 a {
@@ -75,6 +77,7 @@ a {
 
 .section {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	margin-bottom: 3vw;
 	.title {
@@ -126,9 +129,34 @@ a {
 }
 
 .container {
-	padding-inline: 12vw;
+	padding-inline: 25vw;
+}
+
+.footer {
+	// ???????
+	grid-template-columns: repeat(4, 1fr);
+	.footer-section:nth-child(1) {
+		grid-column: span 4;
+	}
+	.footer-section:nth-child(2), .footer-section:nth-child(3) {
+		grid-column: span 2;
+	}
 }
 @import "partials/animations.scss";
+
+// 화면 크기에 맞게 스타일 적용
+@media screen and (max-width: 1280px) {
+	.container {
+		padding-inline: 18vw;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.container {
+		padding-inline: 12vw;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.navbar {
 		.nav-links {
@@ -138,8 +166,34 @@ a {
 			display: block;
 		}
 	}
+	.section {
+		.col {
+			width: 100%;
+			// 선택자 우선순위 중에서도 가장 최우선으로 적용하고 싶을때(!important)
+			padding: 0 !important;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+	}
+	.restaurant-info {
+		display: inline-block;
+		margin : .75em;
+		// margin-bottom: 1em;
+	}
+	.section.restaurant-info .btn{
+		display: block;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
 	.chief-card {
 		box-shadow: 0 5px 10px var(--shadow-color);
 	}
+	.container {
+		padding-inline: 6vw;
+	}
 }
-
+@media screen and (max-width: 480px) {
+	.container {
+		padding-inline: 3vw;
+	}
+}
