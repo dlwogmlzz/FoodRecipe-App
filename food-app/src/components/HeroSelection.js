@@ -17,8 +17,8 @@ export default function HeroSection() {
 		<div className="section hero"> 
 			<div className="col typography">
 				<h1 className="title">The food I ate in Tokyo?</h1>
-				<p className="info">JaeHEEs Food is a place 
-				where you can please your soul and tummy with delicious food recipes of all cuisine. and our service is absolutely free. so start exploring now.
+				<p className="info">JaeHEEs Food is a site 
+				that introduces delicious food among the foods I ate in Tokyo.
 				</p>
 				<button className="btn">explore now</button>
 			</div>
